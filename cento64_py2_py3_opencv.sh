@@ -2,7 +2,6 @@
 # CentOS release 6.4 (Final)
 
 # step 1: install all packages
-ssh-keygen 
 sudo yum install boost-python
 sudo yum install opencv-python
 sudo yum install libdc1394-devel
