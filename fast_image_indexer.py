@@ -40,7 +40,7 @@ def render(images):
 
 def image_finder():
 	res = []
-	for f in os.listdir('.'):
+	for f in sorted(os.listdir('.')):
 		if re.search(r'\.(bmp|jpg|png|jpeg)$', f):
 			print type(f)
 			res.append(f)
