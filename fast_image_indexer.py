@@ -47,5 +47,5 @@ def image_finder():
 	return res
 
 if __name__ == '__main__':
-	html = open("index.html", 'w')
-	html.write(render(image_finder()))
+	with open("index.html", 'w') as html:
+		html.write(render(image_finder()))
