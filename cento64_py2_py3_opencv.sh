@@ -62,3 +62,22 @@ echo 'export PATH=/usr/local/python3.3/bin:$PATH' >> ~/.bashrc
 echo 'export PATH=/usr/local/python2.7/bin:$PATH' >> ~/.bashrc
 echo 'alias activate="source bin/activate"' >> ~/.bashrc
 echo 'export PYTHONPATH+=/usr/lib/python2.6/site-packages:$PYTHONPATH"' >> ~/.bashrc
+
+wget http://www.cmake.org/files/v2.8/cmake-2.8.12.1.tar.gz
+tar -xzvf cmake-2.8.12.1.tar.gz
+cd cmake-2.8.12.1
+sudo yum remove cmake
+./configure
+make
+sudo make install
+
+cd ..
+wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.7/opencv-2.4.7.tar.gz?r=http%3A%2F%2Fopencv.org%2Fdownloads.html&ts=1385451788&use_mirror=jaist
+tar -xzvf opencv-2.4.7.tar.gz
+cd opencv-2.4.7
+mkdir build
+cd build/
+/usr/local/bin/cmake ../ -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_EXAMPLES=ON -DBUILD_NEW_PYTHON_SUPPORT=ON -DINSTALL_PYTHON_EXAMPLES=ON -DPYTHON_EXECUTABLE=/usr/bin/python2.6 -DPYTHON_INCLUDE_DIR=/usr/include/python2.6/ -DPYTHON_LIBRARY=/usr/lib/libpython2.6.so -DPYTHON_NUMPY_INCLUDE_DIR=/usr/lib/python2.6/site-packages/numpy/core/include/ -DPYTHON_PACKAGES_PATH=/usr/lib/python2.6/site-packages/ -DBUILD_PYTHON_SUPPORT=ON
+make
+sudo make install
+
