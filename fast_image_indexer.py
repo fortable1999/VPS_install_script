@@ -22,27 +22,27 @@ TEMPLATE = """
 <title>Fast Image Indexer</title>
 <body>
 <div align="center">
-%s
+{0}
 </div>
+<a href="https://github.com/fortable1999"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 </body>
 </html>
 """
 IMG_TEMPLATE = """
-<img src="%s" align="middle"></img>
+<img src="{0}" align="middle"></img>
 """
 
 def render(images):
 	img_html = ""
 	for img in images:
-		img_html += IMG_TEMPLATE % img
+		img_html += IMG_TEMPLATE.format(img)
 	
-	return TEMPLATE % img_html
+	return TEMPLATE.format(img_html)
 
 def image_finder():
 	res = []
 	for f in sorted(os.listdir('.')):
 		if re.search(r'\.(bmp|jpg|png|jpeg)$', f):
-			print type(f)
 			res.append(f)
 	return res
 
